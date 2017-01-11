@@ -7,9 +7,6 @@
           "module-resolver",
           {
             "root": ["./src"],
-            "alias": {
-              "src": "./src",
-            }
           }
         ],
         "react-hot-loader/babel",
