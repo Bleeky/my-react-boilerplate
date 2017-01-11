@@ -5,7 +5,7 @@ import { routes, MatchWithSubRoutes } from './routes';
 import store from './store';
 import NotFound from './NotFound';
 
-import './assets/app.scss';
+import './assets/scss/app.scss';
 
 const AppRouter = ({ history }) => (
   <Provider store={store}>
