@@ -6,7 +6,9 @@
   "parser": "babel-eslint",
   "rules": {
     "eol-last": 1,
-    "no-console": 0,
+    "no-console": 1,
+    'react/no-array-index-key': 1,
+    'react/require-default-props': 1,
     "react/jsx-filename-extension": [1, {
     "extensions": [".js", ".jsx"]
     }],

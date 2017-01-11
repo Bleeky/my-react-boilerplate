@@ -8,7 +8,7 @@ ReactDOM.render(
   (<AppContainer>
     <AppRouter />
   </AppContainer>),
-  rootElement
+  rootElement,
 );
 
 if (module.hot) {
@@ -19,7 +19,7 @@ if (module.hot) {
       (<AppContainer>
         <NextAppRouter />
       </AppContainer>),
-      rootElement
+      rootElement,
     );
   });
 }
