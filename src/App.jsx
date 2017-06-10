@@ -1,11 +1,25 @@
-import React from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-import { ExampleContainer } from './modules/Example/';
+import { Example } from './modules';
 
-const App = () => (
-  <div className="App">
-    <ExampleContainer />
-  </div>
-);
+class App extends Component {
+  static propTypes = {}
+
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
+  render() {
+    console.log(this.props);
+    return (
+      <div className="app">
+        I am the entry point !
+        <Example />
+      </div>
+    );
+  }
+}
 
 export default App;

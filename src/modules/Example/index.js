@@ -1,5 +1,3 @@
-import ExampleContainer from './ExampleContainer';
+import Example from './ExampleContainer';
 
-export {
-  ExampleContainer, // eslint-disable-line import/prefer-default-export
-};
+export default Example;

@@ -1,6 +1,8 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
+import { withRouter } from 'react-router-dom';
+
 import ExampleView from './ExampleView';
 import example from './actions';
 
@@ -12,6 +14,6 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   example,
 }, dispatch);
 
-const ExampleContainer = connect(mapStateToProps, mapDispatchToProps)(ExampleView);
+const ExampleContainer = withRouter(connect(mapStateToProps, mapDispatchToProps)(ExampleView));
 
 export default ExampleContainer;

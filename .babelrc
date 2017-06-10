@@ -1,16 +1,30 @@
 {
-  "presets": ["es2015", "es2016", "es2017", "react", "babel-preset-stage-0"],
-  "env": {
-    "development": {
-      "plugins": [
-        [
-          "module-resolver",
-          {
-            "root": ["./src"],
-          }
-        ],
-        "react-hot-loader/babel",
-      ],
-    }
-  }
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "root": ["./src"],
+      }
+    ],
+    "react-hot-loader/babel", [
+      "transform-runtime",
+      {
+        "polyfill": false,
+        "regenerator": true,
+      }
+    ],
+    "transform-react-inline-elements",
+  ],
+  "presets": [
+    "env", [
+      "latest",
+      {
+        "es2015": {
+          "modules": false,
+        },
+      },
+    ],
+    "react",
+    "stage-0",
+  ],
 }

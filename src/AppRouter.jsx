@@ -1,27 +1,23 @@
 import React from 'react';
-import { Provider } from 'react-redux';
-import { Miss, BrowserRouter } from 'react-router';
-import { routes, MatchWithSubRoutes } from './routes';
-import store from './store';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from 'react-router-dom';
+import AppContainer from './AppContainer';
 import NotFound from './NotFound';
 
 import './assets/scss/app.scss';
 
 const AppRouter = () => (
-  <Provider store={store}>
-    <BrowserRouter>
-      {({ router }) => (
-        <div>
-          {
-          routes.map((route, i) => (
-            <MatchWithSubRoutes key={i} {...route} router={router} />
-          ))
-        }
-          <Miss component={NotFound} />
-        </div>
-    )}
-    </BrowserRouter>
-  </Provider>
+  <Router>
+    <div>
+      <Switch>
+        <Route path="/home" component={AppContainer} />
+        <Route component={NotFound} />
+      </Switch>
+    </div>
+  </Router>
 );
 
 export default AppRouter;
