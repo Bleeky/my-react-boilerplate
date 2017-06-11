@@ -8,10 +8,12 @@ const distPath = path.resolve(__dirname, 'dist');
 const srcPath = path.resolve(__dirname, 'src');
 
 const config = {
-  entry: srcPath,
+  entry: {
+    main: path.join(srcPath, 'index.dev'),
+  },
   output: {
     path: distPath,
-    filename: 'app.js',
+    filename: '[name].[hash].bundle.js',
     publicPath: '/',
   },
   module: {
@@ -77,8 +79,13 @@ const config = {
       asset: '[path].gz[query]',
       algorithm: 'gzip',
       test: /\.js$|\.css$|\.html$/,
-      threshold: 10240,
       minRatio: 0.8,
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      minChunks(module) {
+        return module.context && module.context.indexOf('node_modules') !== -1;
+      },
     }),
   ],
 };

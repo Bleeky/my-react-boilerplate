@@ -5,6 +5,7 @@ import {
 } from 'react-redux';
 import AppRouter from './AppRouter';
 import store from './store';
+import './assets/scss/app.scss';
 
 const {
   render,

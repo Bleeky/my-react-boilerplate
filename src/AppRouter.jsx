@@ -7,8 +7,6 @@ import {
 import AppContainer from './AppContainer';
 import NotFound from './NotFound';
 
-import './assets/scss/app.scss';
-
 const AppRouter = () => (
   <Router>
     <div>

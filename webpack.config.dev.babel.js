@@ -3,21 +3,17 @@ import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
-// var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-
 
 const distPath = path.resolve(__dirname, 'dist');
 const srcPath = path.resolve(__dirname, 'src');
 
 const config = {
-  entry: [
-    'react-hot-loader/patch',
-    'webpack/hot/only-dev-server',
-    path.join(srcPath, 'index.dev'),
-  ],
+  entry: {
+    main: path.join(srcPath, 'index.dev'),
+  },
   output: {
     path: distPath,
-    filename: 'app.js',
+    filename: '[name].[hash].bundle.js',
     publicPath: '/',
   },
   module: {
@@ -95,6 +91,12 @@ const config = {
       hash: true,
       inject: true,
       template: path.join(srcPath, 'index.html'),
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      minChunks(module) {
+        return module.context && module.context.indexOf('node_modules') !== -1;
+      },
     }),
   ],
 };

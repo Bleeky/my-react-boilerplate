@@ -10,7 +10,7 @@ import NotFound from 'NotFound';
 const ExampleRoutes = ({ match }) => (
   <Switch>
     <Route exact path={match.url} />
-    <Route path={`${match.url}/create`} component={ExampleCreate} />
+    <Route exact path={`${match.url}/create`} component={ExampleCreate} />
     <Route component={NotFound} />
   </Switch>
 );
