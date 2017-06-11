@@ -79,7 +79,7 @@ const config = {
     compress: true,
   },
   performance: {
-    hints: 'warning',
+    hints: false,
   },
   plugins: [
     new BundleAnalyzerPlugin(),

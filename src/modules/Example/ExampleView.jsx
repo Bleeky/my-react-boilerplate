@@ -5,8 +5,8 @@ import ExampleRoutes from './ExampleRoutes';
 
 class ExampleView extends Component {
   static propTypes = {
-    message: PropTypes.string.isRequired,
-    example: PropTypes.func.isRequired,
+    movies: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+    fetchMovies: PropTypes.func.isRequired,
   }
 
   constructor(props) {
@@ -17,8 +17,9 @@ class ExampleView extends Component {
   render() {
     return (
       <div>
-        <div>Welcome to my boilerplate ! {this.props.message}</div>
-        <button onClick={this.props.example}>Update here.</button>
+        <div>Welcome to my boilerplate ! Yeah</div>
+        <button onClick={this.props.fetchMovies}>Fetch movies.</button>
+        {this.props.movies.map(movie => <div>{movie.title}</div>)}
         <ExampleRoutes match={this.props.match} />
       </div>
     );

@@ -4,14 +4,14 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 import ExampleView from './ExampleView';
-import example from './actions';
+import { fetchMovies } from './actions';
 
 const mapStateToProps = state => ({
-  message: state.example.message,
+  movies: state.example.movies,
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  example,
+  fetchMovies,
 }, dispatch);
 
 const ExampleContainer = withRouter(connect(mapStateToProps, mapDispatchToProps)(ExampleView));

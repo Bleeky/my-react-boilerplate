@@ -1,10 +1,26 @@
+import {
+  FETCH_MOVIES_FULFILLED,
+  FETCH_MOVIES_REJECTED,
+  FETCH_MOVIES,
+} from '../actions';
+
 export default function exampleReducer(state = {
-  message: 'Default redux message.',
+  movies: [],
 }, action) {
   switch (action.type) {
-    case 'UPDATE_EXAMPLE':
+    case FETCH_MOVIES:
       return {
-        message: 'Update of the message',
+        ...state,
+      };
+    case FETCH_MOVIES_FULFILLED:
+      return {
+        ...state,
+        movies: action.payload,
+      };
+    case FETCH_MOVIES_REJECTED:
+      return {
+        ...state,
+        error: action.payload,
       };
     default:
       return state;
