@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
 class ExampleCreateView extends Component {
-  static propTypes = {
-    text: PropTypes.string,
-  }
+  static propTypes = {}
 
   constructor(props) {
     super(props);
@@ -12,9 +9,10 @@ class ExampleCreateView extends Component {
   }
 
   render() {
+    console.log('ExampleCreateView', this.props);
     return (
       <div>
-        Let's create something !
+        {'Let\'s create something !'}
       </div>
     );
   }

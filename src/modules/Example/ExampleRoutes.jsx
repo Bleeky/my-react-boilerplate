@@ -4,8 +4,9 @@ import {
   Route,
 } from 'react-router-dom';
 
-import ExampleCreate from './ExampleCreate';
 import NotFound from 'NotFound';
+
+import ExampleCreate from './ExampleCreate';
 
 const ExampleRoutes = ({ match }) => (
   <Switch>
