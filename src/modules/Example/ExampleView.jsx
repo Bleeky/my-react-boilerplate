@@ -19,7 +19,6 @@ class ExampleView extends Component {
       <div>
         <div>Welcome to my boilerplate ! {this.props.message}</div>
         <button onClick={this.props.example}>Update here.</button>
-
         <ExampleRoutes match={this.props.match} />
       </div>
     );

@@ -9,7 +9,11 @@ const srcPath = path.resolve(__dirname, 'src');
 
 const config = {
   entry: {
-    main: path.join(srcPath, 'index.dev'),
+    main: [
+      'react-hot-loader/patch',
+      'webpack/hot/only-dev-server',
+      path.join(srcPath, 'index.dev'),
+    ],
   },
   output: {
     path: distPath,
@@ -65,7 +69,7 @@ const config = {
       '.jsx',
     ],
   },
-  devtool: 'cheap-eval-source-map',
+  devtool: 'eval',
   devServer: {
     contentBase: srcPath,
     historyApiFallback: true,
