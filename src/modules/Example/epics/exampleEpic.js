@@ -10,7 +10,7 @@ import {
 const fetchMoviesRequest = () =>
   ajax.getJSON('https://ghibliapi.herokuapp.com/films');
 
-const fetchMoviesEpic = action$ =>
+const fetchMoviesEpic = (action$, store) =>
   action$.ofType(FETCH_MOVIES)
     .mergeMap(() =>
        fetchMoviesRequest()
