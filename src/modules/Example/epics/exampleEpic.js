@@ -1,5 +1,5 @@
 import { Observable } from 'rxjs';
-import { ajax } from 'rxjs/observable/dom/ajax';
+import api from 'api';
 
 import {
   FETCH_MOVIES,
@@ -8,7 +8,7 @@ import {
 } from '../actions';
 
 const fetchMoviesRequest = () =>
-  ajax.getJSON('https://ghibliapi.herokuapp.com/films');
+  api.routes.getAllFilms();
 
 const fetchMoviesEpic = (action$, store) =>
   action$.ofType(FETCH_MOVIES)

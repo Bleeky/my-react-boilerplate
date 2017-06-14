@@ -2,7 +2,7 @@ import path from 'path';
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 
-import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+// import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
 const distPath = path.resolve(__dirname, 'dist');
 const srcPath = path.resolve(__dirname, 'src');
@@ -82,7 +82,7 @@ const config = {
     hints: false,
   },
   plugins: [
-    new BundleAnalyzerPlugin(),
+    // new BundleAnalyzerPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('development'),

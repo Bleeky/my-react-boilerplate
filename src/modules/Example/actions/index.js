@@ -7,6 +7,15 @@ import {
   fetchMoviesRejected,
 } from './exampleAction';
 
+import {
+  FETCH_MOVIE,
+  FETCH_MOVIE_FULFILLED,
+  FETCH_MOVIE_REJECTED,
+  fetchMovie,
+  fetchMovieFulfilled,
+  fetchMovieRejected,
+} from './fetchMovieAction';
+
 export {
   FETCH_MOVIES,
   FETCH_MOVIES_FULFILLED,
@@ -14,4 +23,11 @@ export {
   fetchMovies,
   fetchMoviesFulfilled,
   fetchMoviesRejected,
+
+  FETCH_MOVIE,
+  FETCH_MOVIE_FULFILLED,
+  FETCH_MOVIE_REJECTED,
+  fetchMovie,
+  fetchMovieFulfilled,
+  fetchMovieRejected,
 };

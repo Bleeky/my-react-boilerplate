@@ -4,7 +4,10 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 import ExampleView from './ExampleView';
-import { fetchMovies } from './actions';
+import {
+  fetchMovies,
+  fetchMovie,
+} from './actions';
 
 const mapStateToProps = state => ({
   movies: state.example.movies,
@@ -12,6 +15,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   fetchMovies,
+  fetchMovie,
 }, dispatch);
 
 const ExampleContainer = withRouter(connect(mapStateToProps, mapDispatchToProps)(ExampleView));
