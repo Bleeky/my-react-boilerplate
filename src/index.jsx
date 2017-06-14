@@ -1,22 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {
-  Provider,
-} from 'react-redux';
 import AppRouter from './AppRouter';
-import store from './store';
+import configureStore from './store';
+
+import './assets/scss/app.scss';
 
 const {
   render,
 } = ReactDOM;
 
-const rootElement = document.getElementById('root');
+const store = configureStore();
 
 render(
   (
-    <Provider store={store}>
-      <AppRouter />
-    </Provider>
+    <AppRouter store={store} />
   ),
-  rootElement,
+  document.getElementById('root'),
 );
