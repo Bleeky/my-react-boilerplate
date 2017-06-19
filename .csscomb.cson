@@ -2,7 +2,6 @@
   "exclude": [
     ".git/**",
     "node_modules/**",
-    "bower_components/**"
   ],
   "remove-empty-rulesets": true,
   "always-semicolon": true,
