@@ -64,6 +64,9 @@ const config = {
     ],
   },
   resolve: {
+    alias: {
+      config$: path.join(srcPath, 'config.dev.js'),
+    },
     extensions: [
       '.js',
       '.jsx',
