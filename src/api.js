@@ -1,4 +1,4 @@
-import RxjsWrapper from 'rxjs-ajax-wrapper';
+import { RxjsWrapper } from 'rxjs-ajax-wrapper';
 
 const apiDefs = {
   getAllFilms: {
@@ -16,8 +16,6 @@ const apiDefs = {
     method: 'POST',
   },
 };
-
-// api.routes.getSingleRes({id: 2, otherId: 3}, JSON.stringify(truc), {category: 'lol', order_by: 'desc', square: [1, 2, 3]});
 
 const api = new RxjsWrapper(apiDefs);
 api.addRequestMiddleware(() => ({ headers: { Authorization: 'Bearer mesfesses' } }));

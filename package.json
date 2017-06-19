@@ -17,7 +17,7 @@
     "redux": "^3.7.0",
     "redux-observable": "^0.14.1",
     "rxjs": "^5.4.1",
-    "rxjs-ajax-wrapper": "0.0.7"
+    "rxjs-ajax-wrapper": "0.0.12"
   },
   "devDependencies": {
     "babel-eslint": "^7.1.1",
