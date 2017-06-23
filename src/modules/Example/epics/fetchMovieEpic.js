@@ -17,7 +17,8 @@ const fetchMovieEpic = (action$, store) =>
         .map(response => fetchMovieFulfilled(response))
         .catch(error => Observable.of(
           fetchMovieRejected(error),
-        )),
+        ))
+        .takeUntil(action$.ofType(FETCH_MOVIE)),
     );
 
 export default fetchMovieEpic;
