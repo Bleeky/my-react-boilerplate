@@ -5,7 +5,6 @@
     "lint": "eslint ./src --ext .js,.jsx || true",
     "prebuild": "npm run clean",
     "start": "webpack-dev-server --config webpack.config.dev.babel.js",
-    "start-docker": "webpack-dev-server --config webpack.config.dev.babel.js --host 0.0.0.0 --public 0.0.0.0"
   },
   "dependencies": {
     "babel-core": "^6.25.0",
