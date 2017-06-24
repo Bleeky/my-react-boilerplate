@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   BrowserRouter as Router,
   Switch,
@@ -21,5 +22,9 @@ const AppRouter = ({ store }) => (
     </Router>
   </Provider>
 );
+
+AppRouter.propTypes = {
+  store: PropTypes.shape().isRequired,
+};
 
 export default AppRouter;
