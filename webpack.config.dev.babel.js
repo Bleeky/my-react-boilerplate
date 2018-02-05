@@ -74,6 +74,8 @@ const config = {
   },
   devtool: 'eval',
   devServer: {
+    host: '0.0.0.0',
+    port: 5050,
     contentBase: srcPath,
     historyApiFallback: true,
     hot: true,
