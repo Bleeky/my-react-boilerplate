@@ -8,7 +8,7 @@ import {
 } from './exampleAction';
 
 import {
-  FETCH_MOVIE,
+  FETCH_MOVIE_REQUEST,
   FETCH_MOVIE_FULFILLED,
   FETCH_MOVIE_REJECTED,
   fetchMovie,
@@ -24,7 +24,7 @@ export {
   fetchMoviesFulfilled,
   fetchMoviesRejected,
 
-  FETCH_MOVIE,
+  FETCH_MOVIE_REQUEST,
   FETCH_MOVIE_FULFILLED,
   FETCH_MOVIE_REJECTED,
   fetchMovie,

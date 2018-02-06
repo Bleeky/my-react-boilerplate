@@ -19,7 +19,7 @@ export default function exampleReducer(state = {
         ...state,
         error: action.payload,
       };
-    case actions.FETCH_MOVIE:
+    case actions.FETCH_MOVIE_REQUEST:
       return {
         ...state,
       };

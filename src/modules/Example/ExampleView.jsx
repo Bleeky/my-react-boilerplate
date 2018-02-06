@@ -19,11 +19,13 @@ class ExampleView extends Component {
     return (
       <div>
         <div>Welcome to my boilerplate ! Yeah</div>
+        {/* <Loader></Loader> */}
         <button onClick={this.props.fetchMovies}>Fetch movies.</button>
         {
           this.props.movies.map(movie => (
-            <div>{movie.title}
-              <button onClick={() => { this.props.fetchMovie({ movieID: movie.id }); }}>Fetch this movie</button>
+            <div>
+              {movie.title}
+              <button onClick={() => { this.props.fetchMovie({ movieID: movie.id }, { loadID: `movie${movie.id}` }); }}>Fetch this movie</button>
             </div>
           ))
         }
