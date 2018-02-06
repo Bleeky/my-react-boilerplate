@@ -13,12 +13,9 @@ const fetchMovieRequest = urlParams =>
 const fetchMovieEpic = (action$, store) =>
   action$.ofType(FETCH_MOVIE)
     .mergeMap(action =>
-       fetchMovieRequest(action.urlParams)
+      fetchMovieRequest(action.urlParams)
         .map(response => fetchMovieFulfilled(response))
-        .catch(error => Observable.of(
-          fetchMovieRejected(error),
-        ))
-        .takeUntil(action$.ofType(FETCH_MOVIE)),
-    );
+        .catch(error => Observable.of(fetchMovieRejected(error)))
+        .takeUntil(action$.ofType(FETCH_MOVIE)));
 
 export default fetchMovieEpic;

@@ -18,14 +18,15 @@ const renderApp = (Component) => {
     <AppContainer>
       <Component store={store} />
     </AppContainer>,
-  document.getElementById('root'));
+    document.getElementById('root'),
+  );
 };
 
 renderApp(AppRouter);
 
 if (module.hot) {
   module.hot.accept('./AppRouter', () => {
-    const NewAppRouter = require('./AppRouter').default;
+    const NewAppRouter = require('./AppRouter').default; // eslint-disable-line
     render(
       <AppContainer>
         <NewAppRouter store={store} />

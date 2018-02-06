@@ -13,11 +13,8 @@ const fetchMoviesRequest = () =>
 const fetchMoviesEpic = (action$, store) =>
   action$.ofType(FETCH_MOVIES)
     .mergeMap(() =>
-       fetchMoviesRequest()
+      fetchMoviesRequest()
         .map(response => fetchMoviesFulfilled(response))
-        .catch(error => Observable.of(
-          fetchMoviesRejected(error),
-        )),
-    );
+        .catch(error => Observable.of(fetchMoviesRejected(error))));
 
 export default fetchMoviesEpic;

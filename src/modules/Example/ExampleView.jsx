@@ -20,10 +20,13 @@ class ExampleView extends Component {
       <div>
         <div>Welcome to my boilerplate ! Yeah</div>
         <button onClick={this.props.fetchMovies}>Fetch movies.</button>
-        {this.props.movies.map(movie =>
-          (<div>{movie.title}
-            <button onClick={() => { this.props.fetchMovie(movie.id); }}>Fetch this movie</button>
-          </div>))}
+        {
+          this.props.movies.map(movie => (
+            <div>{movie.title}
+              <button onClick={() => { this.props.fetchMovie(movie.id); }}>Fetch this movie</button>
+            </div>
+          ))
+        }
         <ExampleRoutes match={this.props.match} />
       </div>
     );

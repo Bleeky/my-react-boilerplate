@@ -8,7 +8,7 @@ const epicMiddleware = createEpicMiddleware(rootEpic);
 
 if (module.hot) {
   module.hot.accept('./epics', () => {
-    const nextRootEpic = require('./epics').default;
+    const nextRootEpic = require('./epics').default; // eslint-disable-line
     epicMiddleware.replaceEpic(nextRootEpic);
   });
 }
@@ -24,8 +24,7 @@ export default function configureStore() {
 
   if (module.hot) {
     module.hot.accept('./reducers', () =>
-      store.replaceReducer(require('./reducers').default),
-    );
+      store.replaceReducer(require('./reducers').default)); // eslint-disable-line
   }
 
   return store;

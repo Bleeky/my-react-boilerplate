@@ -3,6 +3,7 @@ import webpack from 'webpack';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import CompressionPlugin from 'compression-webpack-plugin';
+import UglifyJSPlugin from 'uglifyjs-webpack-plugin';
 
 const distPath = path.resolve(__dirname, 'dist');
 const srcPath = path.resolve(__dirname, 'src');
@@ -26,9 +27,15 @@ const config = {
       {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
+          fallback: {
+            loader: 'style-loader',
+            options: {
+              insertAt: 'top',
+            },
+          },
           use: [
             'css-loader?minimize',
+            'postcss-loader',
           ],
         }),
       },
@@ -38,6 +45,7 @@ const config = {
           fallback: 'style-loader',
           use: [
             'css-loader?minimize',
+            'postcss-loader',
             'sass-loader',
           ],
         }),
@@ -63,8 +71,9 @@ const config = {
         NODE_ENV: JSON.stringify('production'),
       },
     }),
-    new webpack.optimize.UglifyJsPlugin({
-      comments: false,
+    new UglifyJSPlugin({
+      parallel: true,
+      cache: true,
     }),
     new ExtractTextPlugin({
       filename: 'app.css',

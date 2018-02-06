@@ -30,9 +30,21 @@ const config = {
       {
         test: /\.css$/,
         use: [
-          'style-loader',
+          {
+            loader: 'style-loader',
+            options: {
+              insertAt: 'top',
+            },
+          },
           {
             loader: 'css-loader',
+            options: {
+              sourceMap: true,
+              importLoaders: 1,
+            },
+          },
+          {
+            loader: 'postcss-loader',
             options: {
               sourceMap: true,
             },
@@ -45,6 +57,13 @@ const config = {
           'style-loader',
           {
             loader: 'css-loader',
+            options: {
+              sourceMap: true,
+              importLoaders: 1,
+            },
+          },
+          {
+            loader: 'postcss-loader',
             options: {
               sourceMap: true,
             },
