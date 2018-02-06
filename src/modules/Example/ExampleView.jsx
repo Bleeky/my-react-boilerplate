@@ -23,7 +23,7 @@ class ExampleView extends Component {
         {
           this.props.movies.map(movie => (
             <div>{movie.title}
-              <button onClick={() => { this.props.fetchMovie(movie.id); }}>Fetch this movie</button>
+              <button onClick={() => { this.props.fetchMovie({ movieID: movie.id }); }}>Fetch this movie</button>
             </div>
           ))
         }

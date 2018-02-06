@@ -7,7 +7,7 @@ const apiDefs = {
     responseType: 'json',
   },
   getFilm: {
-    url: 'https://ghibliapi.herokuapp.com/films/:id',
+    url: 'https://ghibliapi.herokuapp.com/films/:movieID',
     method: 'GET',
     responseType: 'json',
   },
@@ -18,6 +18,6 @@ const apiDefs = {
 };
 
 const api = new RxjsWrapper(apiDefs);
-api.addRequestMiddleware(() => ({ headers: { Authorization: 'Bearer mesfesses' } }));
+api.addRequestMiddlewares([{ name: 'token', handler: () => ({ headers: { Authorization: 'Bearer mesfesses' } }) }]);
 
 export default api;

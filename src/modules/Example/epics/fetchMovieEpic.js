@@ -7,13 +7,13 @@ import {
   fetchMovieRejected,
 } from '../actions';
 
-const fetchMovieRequest = urlParams =>
-  api.routes.getFilm(urlParams);
+const fetchMovieRequest = params =>
+  api.routes.getFilm({ params });
 
 const fetchMovieEpic = (action$, store) =>
   action$.ofType(FETCH_MOVIE)
     .mergeMap(action =>
-      fetchMovieRequest(action.urlParams)
+      fetchMovieRequest(action.params)
         .map(response => fetchMovieFulfilled(response))
         .catch(error => Observable.of(fetchMovieRejected(error)))
         .takeUntil(action$.ofType(FETCH_MOVIE)));
