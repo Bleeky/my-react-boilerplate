@@ -36,6 +36,7 @@ const fetchMovieEpic = (action$, store) =>
           }
           return errorCount + 1;
         }, 1))
+        // Could launch a refresh at this moment for example
         .catch(error => Observable.of(fetchMovieRejected(error, action.extras)))
         .takeUntil(action$.ofType(FETCH_MOVIE_REQUEST)));
 

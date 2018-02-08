@@ -19,7 +19,7 @@ class ExampleView extends Component {
     return (
       <div>
         <div>Welcome to my boilerplate ! Yeah</div>
-        {/* <Loader></Loader> With 2 types: deactivate (simple put the element disabled) and a specific loader component */}
+        {/* <Loader loadIDs={['movies']}></Loader> With 2 types: deactivate (simple put the element disabled) and a specific loader component */}
         <button onClick={this.props.fetchMovies}>Fetch movies.</button>
         {
           this.props.movies.map(movie => (
