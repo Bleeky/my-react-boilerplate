@@ -15,6 +15,7 @@ const config = {
   output: {
     path: distPath,
     filename: '[name].[hash].bundle.js',
+    chunkFilename: '[name].[chunkhash].js',
     publicPath: '/',
   },
   module: {
@@ -51,8 +52,19 @@ const config = {
         }),
       },
       {
-        test: /\.(jpe?g|png|gif|svg)$/i,
+        test: /\.(jpe?g|png|gif)$/i,
         loader: 'file-loader?name=src/assets/images/[name].[ext]',
+        options: {
+          limit: 10 * 1024,
+        },
+      },
+      {
+        test: /\.svg$/,
+        loader: 'svg-url-loader',
+        options: {
+          limit: 10 * 1024,
+          noquotes: true,
+        },
       },
     ],
   },
@@ -65,6 +77,7 @@ const config = {
       '.jsx',
     ],
   },
+  devtool: 'source-map',
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
@@ -74,6 +87,7 @@ const config = {
     new UglifyJSPlugin({
       parallel: true,
       cache: true,
+      sourceMap: true,
     }),
     new ExtractTextPlugin({
       filename: 'app.css',
@@ -87,6 +101,10 @@ const config = {
       },
       template: path.join(srcPath, 'index.html'),
     }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'common',
+    }),
+    new webpack.optimize.ModuleConcatenationPlugin(),
     new CompressionPlugin({
       asset: '[path].gz[query]',
       algorithm: 'gzip',

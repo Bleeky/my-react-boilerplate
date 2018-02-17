@@ -75,8 +75,19 @@ const config = {
         ],
       },
       {
-        test: /\.(jpe?g|png|gif|svg)$/i,
+        test: /\.(jpe?g|png|gif)$/i,
         loader: 'file-loader?name=src/assets/images/[name].[ext]',
+        options: {
+          limit: 10 * 1024,
+        },
+      },
+      {
+        test: /\.svg$/,
+        loader: 'svg-url-loader',
+        options: {
+          limit: 10 * 1024,
+          noquotes: true,
+        },
       },
     ],
   },
