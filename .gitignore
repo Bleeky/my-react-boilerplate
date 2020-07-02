@@ -1,7 +1,11 @@
+src/config.dev.js
 .DS_Store
+bin/
 dist/
 node_modules/
 npm-debug.log
+.DS_Store
 package-lock.json
-src/config.dev.js
-src/config.prod.js
+monitor
+sassdoc
+webpack-stats

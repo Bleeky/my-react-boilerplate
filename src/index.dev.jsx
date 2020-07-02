@@ -1,37 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { AppContainer } from 'react-hot-loader'; // eslint-disable-line
+import "core-js/stable";
+import "regenerator-runtime/runtime";
 
-import AppRouter from './AppRouter';
-import configureStore from './store';
+import React from "react";
+import { render } from "react-dom";
 
-import './assets/scss/app.scss';
+import AppRouter from "./AppRouter";
+import store from "./store";
 
-const {
-  render,
-} = ReactDOM;
+import "./assets/scss/app.scss";
 
-const store = configureStore();
-
-const renderApp = (Component) => {
-  render(
-    <AppContainer>
-      <Component store={store} />
-    </AppContainer>,
-    document.getElementById('root'),
-  );
-};
-
-renderApp(AppRouter);
-
-if (module.hot) {
-  module.hot.accept('./AppRouter', () => {
-    const NewAppRouter = require('./AppRouter').default; // eslint-disable-line
-    render(
-      <AppContainer>
-        <NewAppRouter store={store} />
-      </AppContainer>,
-      document.getElementById('root'),
-    );
-  });
-}
+render(<AppRouter store={store} />, document.getElementById("root"));

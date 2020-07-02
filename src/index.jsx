@@ -1,19 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import AppRouter from './AppRouter';
-import configureStore from './store';
+import "core-js/stable";
+import "regenerator-runtime/runtime";
 
-import './assets/scss/app.scss';
+import React from "react";
+import { render } from "react-dom";
+import AppRouter from "./AppRouter";
+import store from "./store";
 
-const {
-  render,
-} = ReactDOM;
+import "./assets/scss/app.scss";
 
-const store = configureStore();
-
-render(
-  (
-    <AppRouter store={store} />
-  ),
-  document.getElementById('root'),
-);
+render(<AppRouter store={store} />, document.getElementById("root"));

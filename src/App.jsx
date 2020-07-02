@@ -1,26 +1,36 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import React, { PureComponent } from "react";
+import PropTypes from "prop-types";
+import { Route, Redirect } from "react-router-dom";
+import HomeRouter from "routes/HomeRouter";
 
-import { Example } from './modules';
+import Navbar from "components/Navbar";
 
-class App extends Component {
-  static propTypes = {}
-
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+class App extends PureComponent {
+  static propTypes = {
+    auth: PropTypes.shape().isRequired,
+  };
 
   render() {
     return (
       <div className="app">
-        I am the entry point !
-        <ul>
-          <li><Link to="/home">Home</Link></li>
-          <li><Link to="/home/create">Create</Link></li>
-        </ul>
-
-        <Example />
+        <Route
+          render={(props) => {
+            if (this.props.auth.isAuthenticated) {
+              return [
+                <Navbar key="navbar" {...props} />,
+                <HomeRouter {...props} key="application" />,
+              ];
+            }
+            return (
+              <Redirect
+                to={{
+                  pathname: "/login",
+                  state: { from: props.location },
+                }}
+              />
+            );
+          }}
+        />
       </div>
     );
   }

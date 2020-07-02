@@ -1,29 +1,22 @@
 {
-  "env": {
-    "production": {
-      "plugins": ["transform-react-remove-prop-types"]
-    }
-  },
-  "plugins": [
-    [
-      "module-resolver",
-      {
-        "root": ["./src"],
-      }
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
     ],
-    "react-hot-loader/babel", [
-      "transform-runtime",
-      {
-        "polyfill": false,
-        "regenerator": true,
-      }
-    ],
-    "transform-react-inline-elements",
-    "idx",
-  ],
-  "presets": [
-    "env",
-    "react",
-    "stage-0",
-  ],
-}
+    "plugins": [
+      [
+        "module-resolver",
+        {
+          "root": [
+            "./src"
+          ]
+        }
+      ],
+      "react-hot-loader/babel",
+      "@babel/plugin-transform-runtime",
+      "@babel/plugin-syntax-dynamic-import",
+      "@babel/plugin-proposal-class-properties",
+      "@babel/plugin-proposal-optional-chaining",
+      "react-loadable/babel"
+    ]
+  }
